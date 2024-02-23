@@ -12,7 +12,7 @@ export async function POST(request: Request) {
       datetime: new Date(),
     },
   });
-  console.log('@1');
+  console.log('@2');
   await prisma.$queryRaw`
     do sleep(20);
   `;

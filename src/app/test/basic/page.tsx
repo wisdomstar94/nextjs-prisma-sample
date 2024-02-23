@@ -1,14 +1,18 @@
 "use client"
 
+import { useState } from "react";
+
 export default function Page() {
+  const [url, setUrl] = useState('/api/insert');
+
   return (
     <>
       <div className="flex flex-wrap gap-2 relative">
         <div className="w-full relative">
           <button 
-            className="inline-flex px-2 py-0.5 text-xs text-slate-600 border border-slate-500 cursor-pointer hover:bg-slate-100"
+            className="inline-flex gap-2 px-4 py-1.5 text-xs text-slate-600 border border-slate-500 cursor-pointer hover:bg-slate-100"
             onClick={() => {
-              fetch('/api/insert', {
+              fetch(url, {
                 method: "POST", // *GET, POST, PUT, DELETE, etc.
                 // mode: "cors", // no-cors, *cors, same-origin
                 // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -26,7 +30,9 @@ export default function Page() {
               });
             }}
             >
-            [POST] /api/insert 호출
+            <span>[POST]</span> 
+            <input type="text" className="inline-flex border border-slate-500" value={url} onChange={e => setUrl(e.target.value)} /> 
+            <span>호출</span>
           </button>
         </div>
       </div>
