@@ -1,12 +1,15 @@
 {
   "name": "nextjs-prisma-sample",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.1",
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+
+    "test-mariadb:build": "docker build --no-cache -t wisdomstar94/test-mariadb:0.0.1 -f ./docker/test-mariadb/Dockerfile ./docker/test-mariadb",
+    "test-mariadb:create-container": "docker run --name test-mariadb-container -h test-mariadb -p 3306:3306 -it -d wisdomstar94/test-mariadb:0.0.1"
   },
   "dependencies": {
     "react": "^18",
