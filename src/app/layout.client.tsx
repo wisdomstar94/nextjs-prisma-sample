@@ -10,6 +10,7 @@ interface Menu {
 export function LayoutClient(props: { children?: ReactNode }) {
   const [menuList, setMenuList] = useState<Menu[]>([
     { name: '/test/basic', href: '/test/basic' },
+    { name: '/test/sql-injection-test', href: '/test/sql-injection-test' },
   ]);
 
   return (
