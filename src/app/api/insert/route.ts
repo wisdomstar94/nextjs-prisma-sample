@@ -6,7 +6,7 @@ export async function POST(request: Request) {
 
   console.log('@req.body', body);
 
-  const newData = await prisma.testTable.create({
+  const newData = await prisma.user.create({
     data: {
       name: `${Date.now()}_name`,
       datetime: new Date(),

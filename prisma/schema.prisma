@@ -13,10 +13,21 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model TestTable {
-  id        Int      @id @default(autoincrement())
-  name      String   @unique
-  datetime  DateTime  
+model User {
+  id Int @id @default(autoincrement())
+  name String @unique
+  datetime DateTime  
+  user_other_infos UserOtherInfo[]
 
-  @@map("test_table")
+  @@map("user")
+}
+
+model UserOtherInfo {
+  id Int @id @default(autoincrement())
+  user_id Int      
+  user User @relation(fields: [user_id], references: [id])
+  info1 String   
+  info2 String    
+
+  @@map("user_other_info")
 }
