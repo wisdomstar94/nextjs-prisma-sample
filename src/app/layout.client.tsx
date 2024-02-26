@@ -12,6 +12,7 @@ export function LayoutClient(props: { children?: ReactNode }) {
     { name: '/test/basic', href: '/test/basic' },
     { name: '/test/sql-injection-test', href: '/test/sql-injection-test' },
     { name: '/test/select', href: '/test/select' },
+    { name: '/test/update', href: '/test/update' },
   ]);
 
   return (

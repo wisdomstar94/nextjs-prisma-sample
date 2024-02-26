@@ -2,7 +2,7 @@ import { Prisma } from "@prisma/client";
 import { prisma } from "../../../../prisma/client.prisma";
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
+  // const { searchParams } = new URL(request.url);
   
   const value = `1 OR \`u\`.\`id\` > 0`;
 

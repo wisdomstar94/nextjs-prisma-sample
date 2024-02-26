@@ -1,11 +1,7 @@
 import { prisma } from "../../../../prisma/client.prisma";
 
 export async function POST(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const body = await request.json();
-
-  console.log('@req.body', body);
-
+  // const { searchParams } = new URL(request.url);
   const newData = await prisma.user.create({
     data: {
       name: `${Date.now()}_name`,
