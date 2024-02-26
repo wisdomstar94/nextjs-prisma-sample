@@ -9,16 +9,22 @@ export async function DELETE(request: Request, { params }: { params: { id: strin
     });
   }
 
-  await prisma.user.deleteMany({
+  const deleteUserOtherInfos = prisma.userOtherInfo.deleteMany({
     where: {
-      AND: {
-        id: {
-          equals: id_num,
-        },
-      },
+      user_id: id_num,
     },
   });
   
+  const deleteUser = prisma.user.delete({
+    where: {
+      id: id_num,
+    },
+  })
+  
+  const transaction = await prisma.$transaction([deleteUserOtherInfos, deleteUser]);
+
+  console.log('@transaction', transaction);
+
   return Response.json({
     timestamp: Date.now(),
     msg: '삭제 성공'
