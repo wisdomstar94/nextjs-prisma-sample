@@ -15,6 +15,7 @@ export function LayoutClient(props: { children?: ReactNode }) {
     { name: '/test/update', href: '/test/update' },
     { name: '/test/delete', href: '/test/delete' },
     { name: '/test/file-upload', href: '/test/file-upload' },
+    { name: '/test/server-action', href: '/test/server-action' },
   ]);
 
   return (
